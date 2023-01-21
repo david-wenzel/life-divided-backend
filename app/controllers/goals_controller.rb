@@ -11,10 +11,14 @@ class GoalsController < ApplicationController
     )
     goal.to_json
     end
-
+# update a goal
     patch "/goals/:id" do
-        e
-
+        goal = Goal.find_by(id: params[:id])
+        goal.update(
+            goal: params[:goal]
+        )
+        goal.to_json
+    end
 
 
 end
