@@ -9,4 +9,11 @@ class SectionsController < ApplicationController
         city.to_json(include: :goals)
     end
 
+    post "/sections" do
+        section = Section.create(
+            title: params[:title]
+        )
+        section.to_json
+    end
+
 end
