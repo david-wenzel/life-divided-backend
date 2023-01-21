@@ -1,4 +1,8 @@
 class GoalsController < ApplicationController
+
+# this controller handles goals routes
+
+
  # Add a new goal
  post "/goals" do 
     event = Goal.create(
@@ -7,4 +11,8 @@ class GoalsController < ApplicationController
     )
     event.to_json
 end
+
+
+
+
 end
