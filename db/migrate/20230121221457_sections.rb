@@ -3,5 +3,6 @@ class Sections < ActiveRecord::Migration[6.1]
     create_table :sections do |t|
       t.string :title
       t.timestamps
+    end
   end
 end
