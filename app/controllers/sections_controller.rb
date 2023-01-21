@@ -16,4 +16,10 @@ class SectionsController < ApplicationController
         section.to_json
     end
 
+    delete "/sections/:id" do
+        section = Section.find_by(id: params[:id])
+        section.destroy
+        section.to_json
+    end
+
 end
