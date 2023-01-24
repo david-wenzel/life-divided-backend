@@ -19,7 +19,7 @@ class GoalsController < ApplicationController
         goal.update(
             goal: params[:goal]
         )
-        goal.to_json
+        all_sections
     end
 
     # delete goal
