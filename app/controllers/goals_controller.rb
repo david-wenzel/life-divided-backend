@@ -9,7 +9,8 @@ class GoalsController < ApplicationController
         goal: params[:goal],
         section_id: params[:section_id]
     )
-        Section.all.to_json(include: :goals)
+        # Section.all.to_json(include: :goals)
+        all_sections
     end
 
 # update a goal

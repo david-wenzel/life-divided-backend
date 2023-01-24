@@ -9,7 +9,7 @@ class SectionsController < ApplicationController
     # backend opperation only 
     delete "/sections/:id" do
         Section.find_by(id: params[:id])
-        all_lists
+        all_sections
     end
 
 
@@ -17,7 +17,6 @@ class SectionsController < ApplicationController
         Section.create(
             title: params[:title]
         )
-        # Section.all.order(updated_at: :desc).to_json(include: :goals)
         all_sections
     end
 
