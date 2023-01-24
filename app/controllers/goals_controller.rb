@@ -5,11 +5,11 @@ class GoalsController < ApplicationController
 
     # Add a new goal
     post "/goals" do 
-        goal = Goal.create(
+        Goal.create(
         goal: params[:goal],
         section_id: params[:section_id]
     )
-    goal.to_json
+        Section.all.to_json(include: :goals)
     end
 
 # update a goal

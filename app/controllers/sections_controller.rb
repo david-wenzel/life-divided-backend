@@ -9,19 +9,27 @@ class SectionsController < ApplicationController
         section.to_json(include: :goals)
     end
 
-    post "/sections" do
-        section = Section.create(
-            title: params[:title]
-        )
-        section.to_json
+    # post "/sections" do
+    #     section = Section.create(
+    #         title: params[:title]
+    #     )
+    #     section.to_json
 
-    end
+    # end
 
     # backend opperation only 
     delete "/sections/:id" do
         section = Section.find_by(id: params[:id])
         section.destroy
         section.to_json
+    end
+
+
+    post "/sections/new" do
+        Section.create(
+            title: params[:title]
+        )
+        Section.all.to_json(include: :goals)
     end
 
 end
