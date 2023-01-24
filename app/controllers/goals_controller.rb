@@ -26,7 +26,7 @@ class GoalsController < ApplicationController
     delete "/goals/:id" do
         goal = Goal.find_by(id: params[:id])
         goal.destroy
-        goal.to_json
+        all_sections
     end
 
 
