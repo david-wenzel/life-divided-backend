@@ -5,8 +5,9 @@ class SectionsController < ApplicationController
    # Get all sections alphabetically by name
     # return a JSON response with an array of sections data, including nested goals data for each section
     get "/sections" do
-        section = Section.all.order(:title)
-        section.to_json(include: :goals)
+        # section = Section.all.order(:updated_at)
+        # Section.all.order(updated_at: :desc).to_json(include: :goals)
+        all_lists
     end
 
     # post "/sections" do
@@ -29,7 +30,8 @@ class SectionsController < ApplicationController
         Section.create(
             title: params[:title]
         )
-        Section.all.to_json(include: :goals)
+        # Section.all.order(updated_at: :desc).to_json(include: :goals)
+        all_lists
     end
 
 end

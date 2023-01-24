@@ -2,8 +2,8 @@ class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
   
   # Add your routes here
-  get "/" do
-    { message: "Good luck with your project!" }.to_json
-  end
+def all_lists
+  Section.all.order(updated_at: :desc).to_json(include: :goals)
+end
 
 end
