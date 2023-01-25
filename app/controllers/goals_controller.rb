@@ -9,15 +9,12 @@ class GoalsController < ApplicationController
         goal: params[:goal],
         section_id: params[:section_id]
     )
-        # Section.all.to_json(include: :goals)
         all_sections
     end
 
 # update a goal
     patch "/goals/:id" do
-        # goal = Goal.find_by(id: params[:id])
         find_goal
-        
         @goal.update(
             goal: params[:goal]
         )
@@ -26,7 +23,6 @@ class GoalsController < ApplicationController
 
     # delete goal
     delete "/goals/:id" do
-        # goal = Goal.find_by(id: params[:id])/
         find_goal
         @goal.destroy
         all_sections
