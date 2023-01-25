@@ -15,8 +15,10 @@ class GoalsController < ApplicationController
 
 # update a goal
     patch "/goals/:id" do
-        goal = Goal.find_by(id: params[:id])
-        goal.update(
+        # goal = Goal.find_by(id: params[:id])
+        find_goal
+        
+        @goal.update(
             goal: params[:goal]
         )
         all_sections
@@ -24,10 +26,17 @@ class GoalsController < ApplicationController
 
     # delete goal
     delete "/goals/:id" do
-        goal = Goal.find_by(id: params[:id])
-        goal.destroy
+        # goal = Goal.find_by(id: params[:id])/
+        find_goal
+        @goal.destroy
         all_sections
     end
+
+
+    private
+    def find_goal
+        @goal = Goal.find_by(id: params[:id])
+      end
 
 
 end

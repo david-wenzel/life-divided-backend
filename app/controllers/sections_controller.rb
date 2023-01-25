@@ -8,8 +8,12 @@ class SectionsController < ApplicationController
 
     # backend opperation only 
     delete "/sections/:id" do
-        Section.find_by(id: params[:id])
-        all_sections
+        # Section.find_by(id: params[:id])
+        section = Section.find_by(id: params[:id])
+        section.destroy
+
+        # all_sections
+        section.to_json
     end
 
 
@@ -21,3 +25,5 @@ class SectionsController < ApplicationController
     end
 
 end
+
+
